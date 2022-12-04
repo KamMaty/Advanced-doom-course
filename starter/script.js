@@ -190,7 +190,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 });
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
-  // section.classList.add('section--hidden');
+  section.classList.add('section--hidden');
 });
 // Lazy loading images
 
@@ -254,20 +254,17 @@ const slider = function () {
   };
 
   // Next slide
-
   const nextSlide = function () {
     if (curSlide === maxSlide - 1) {
       curSlide = 0;
     } else {
       curSlide++;
     }
-
     goToSlide(curSlide);
     activateDot(curSlide);
   };
 
   // Prev slide
-
   const prevSlide = function () {
     if (curSlide === 0) {
       curSlide = maxSlide - 1;
@@ -286,7 +283,6 @@ const slider = function () {
   init();
 
   // Event handlers
-
   btnRight.addEventListener('click', nextSlide);
   btnLeft.addEventListener('click', prevSlide);
 
@@ -299,7 +295,6 @@ const slider = function () {
   dotContainer.addEventListener('click', function (e) {
     if (e.target.classList.contains('dots__dot')) {
       const { slide } = e.target.dataset;
-
       goToSlide(slide);
       activateDot(slide);
     }
